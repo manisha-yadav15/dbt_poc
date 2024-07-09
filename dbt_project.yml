@@ -36,3 +36,6 @@ models:
       materialized: incremental
       on_schema_change: fail
       # +schema: imdb_test
+tests:
+  +store_failures: true
+  +schema: "test"

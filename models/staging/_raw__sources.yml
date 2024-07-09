@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+    - name: raw
+      description: This is a raw database for messages
+      database: raw
+      schema: raw
+      tables:
+          - name: philips_raw_messages
+            description: Raw messages from Philips
+            columns:
+              - name: data
+                data_tests:
+                  - json_property_exists:
+                      property: "message_event_time"
+                      config:
+                        store_failures: true
+    - name: audit
+      database: philips_dbt_test__audit
+      tables:
+        - name: source_json_property_exists_ra_23a028027a4198c7868836d301831362
